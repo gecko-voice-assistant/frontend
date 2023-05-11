@@ -7,26 +7,26 @@ export default {
     './index.html',
     './src/**/*.{vue,js,ts,jsx,tsx}'
   ],
+  safelist: [
+    "router-link-exact-active",
+    "router-link-active"
+  ],
   darkMode: 'media', // or 'media' or 'class'
   theme: {
     extend: {
       colors: {
-        'grey': {
-          900: '#202225',
-          800: '#2f3136',
-          700: '#36393f',
-          600: '#4f545c',
-          500: '#95979d',
-          400: '#d4d7dc',
-          300: '#e3e5e8',
-          200: '#ededef',
-          100: '#f2f3f5'
+        'text': {
+          'normal': '#d5d5d7'
         },
-        'green': {
-          900: '#126701',
-          500: '#144332',
-          100: '#85d574'
-        }
+        'main': {
+          'light': '#3b3f1a',
+          'medium': '#232613',
+          'dark': '#11130a'
+        },
+        'accent': {
+          'light': '#f0b605',
+          'medium': '#52581b'
+        },
       }
     },
   },

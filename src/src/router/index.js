@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import OverviewPage from '@/components/OverviewPage.vue'
+import OverviewPage from '@/components/HomePage.vue'
 import DownloadPage from '@/components/DownloadPage.vue'
 import InstallPage from '@/components/InstallPage.vue'
 import SkillPage from '@/components/SkillPage.vue'
@@ -8,9 +8,10 @@ export default createRouter({
   history: createWebHistory('/'),
   routes: [
     {
-      path: '/',
+      path: '/skill',
       name: 'Home',
       component: OverviewPage,
+      alias: '/',
       meta: {
         breadcrumb: [{ name: 'Home' }]
       }
@@ -20,7 +21,7 @@ export default createRouter({
       name: 'Skill',
       component: SkillPage,
       meta: {
-        breadcrumb: [{ name: 'Home', link: '/' }, { name: ':skill'}]
+        breadcrumb: [{ name: 'Home', link: '/skill' }, { name: ':skill'}]
       }
     },
     {

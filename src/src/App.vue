@@ -4,11 +4,11 @@ import Breadcrumbs from "@/components/Breadcrumbs.vue";
 </script>
 
 <template>
-  <div class="h-screen bg-green-500 flex">
+  <div class="h-screen bg-main-dark flex w-full">
     <Navbar></Navbar>
-    <div class="w-full">
+    <div class='flex flex-col w-full h-full'>
       <Breadcrumbs></Breadcrumbs>
-      <RouterView></RouterView>
+      <RouterView class='text-text-normal'></RouterView>
     </div>
   </div>
 </template>

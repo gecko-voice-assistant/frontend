@@ -1,9 +1,7 @@
 <script>
-import { defineComponent } from "vue";
-
-export default defineComponent({
+export default {
   name: "SettingsPage"
-});
+};
 </script>
 
 <template>

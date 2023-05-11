@@ -3,5 +3,19 @@
 @tailwind utilities;
 
 @layer components{
+    body {
+        @apply bg-main-dark;
+    }
 
+    .test-border {
+        @apply border-2 border-accent-light;
+    }
+
+    .router-link-active {
+        @apply bg-accent-medium text-2xl text-accent-light;
+    }
+
+    th, td {
+        @apply text-center whitespace-nowrap overflow-ellipsis overflow-hidden;
+    }
 }
