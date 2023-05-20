@@ -9,7 +9,9 @@ export default {
   ],
   safelist: [
     "router-link-exact-active",
-    "router-link-active"
+    "router-link-active",
+      "delay-500",
+    { pattern: /delay-./ }
   ],
   darkMode: 'media', // or 'media' or 'class'
   theme: {
