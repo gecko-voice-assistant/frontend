@@ -1,5 +1,22 @@
+<!--
+This file is part of G.E.C.K.O.
+Copyright (C) 2023  Finn Wehn
+
+G.E.C.K.O. is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+-->
 <script>
-import { activateSkill, getSkillDetails } from "@/services/SkillService";
+import { activateSkill, deleteSkill, getSkillDetails } from "@/services/APIService";
 import LoadingBar from "@/components/LoadingBar.vue";
 
 export default {
@@ -30,6 +47,10 @@ export default {
                 this.loading = false;
                 this.loadPage();
             });
+        },
+        deleteSkill() {
+            this.loading = true;
+            deleteSkill(this.skillName).finally(() => this.$router.replace({ path: "/skill" }));
         }
     },
     mounted() {
@@ -49,6 +70,7 @@ export default {
         <h1>{{ description }}</h1>
         <h1>{{ version }}</h1>
         <button @click="activateSkill">{{ $t("skillPage." + (active ? "deactivate" : "activate")) }}</button>
+        <button @click="deleteSkill">{{ $t("skillPage.delete") }}</button>
     </div>
 </template>
 

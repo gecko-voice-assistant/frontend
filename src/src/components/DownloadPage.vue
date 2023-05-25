@@ -1,5 +1,22 @@
+<!--
+This file is part of G.E.C.K.O.
+Copyright (C) 2023  Finn Wehn
+
+G.E.C.K.O. is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+-->
 <script>
-import { downloadSkill, getAllDownloadableSkills } from "@/services/SkillService";
+import { downloadSkill, getAllDownloadableSkills } from "@/services/APIService";
 
 export default {
     name: "DownloadPage",
@@ -22,7 +39,9 @@ export default {
                 .catch(alert);
         },
         downloadSkill(skillName, versionTag) {
-            downloadSkill(skillName, versionTag).catch(alert);
+            downloadSkill(skillName, versionTag)
+                .then(() => this.loadDownloadableSkills())
+                .catch(alert);
         }
     },
     mounted() {
@@ -45,14 +64,16 @@ export default {
                     <option
                         v-for="(version, index) in skill['versions']"
                         :key="index"
+                        :disabled="version === skill['installed']"
                         :selected="version === skill['latest']"
                     >
                         {{ version }}
                     </option>
                 </select>
                 <button
-                    class="bg-accent-medium px-2 p-1 rounded-lg"
+                    class="default-button"
                     @click="downloadSkill(skill['name'], skill['selected'])"
+                    :disabled="skill['selected'] === skill['installed']"
                 >
                     {{ $t("downloadPage.download") }}
                 </button>
