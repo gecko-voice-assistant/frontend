@@ -37,7 +37,8 @@ export default {
             activate: "Activate",
             deactivate: "Deactivate",
             activating: "Activating skill...",
-            deactivating: "Deactivating skill..."
+            deactivating: "Deactivating skill...",
+            options: "Options"
         },
         downloadPage: {
             heading: "Download Skills",
@@ -72,7 +73,9 @@ export default {
             activate: "Aktivieren",
             deactivate: "Deaktivieren",
             activating: "Skill wird aktiviert...",
-            deactivating: "Skill wird deaktiviert..."
+            deactivating: "Skill wird deaktiviert...",
+            delete: "Löschen",
+            options: "Optionen"
         },
         downloadPage: {
             heading: "Skills Herunterladen",

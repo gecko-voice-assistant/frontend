@@ -28,6 +28,7 @@ export default {
             description: "",
             version: "1.0",
             active: false,
+            options: {},
             loading: false
         };
     },
@@ -37,6 +38,7 @@ export default {
                 .then((response) => {
                     this.description = response["description"];
                     this.version = response["version"];
+                    this.options = response["options"];
                     this.active = response["active"];
                 })
                 .catch(alert);
@@ -60,17 +62,45 @@ export default {
 </script>
 
 <template>
-    <div>
+    <div class="flex flex-col items-center gap-5 ">
         <LoadingBar
             :showing="loading"
             :title="$t('skillPage.' + (active ? 'deactivating' : 'activating'))"
         ></LoadingBar>
 
-        <h1>{{ skillName }}</h1>
-        <h1>{{ description }}</h1>
-        <h1>{{ version }}</h1>
-        <button @click="activateSkill">{{ $t("skillPage." + (active ? "deactivate" : "activate")) }}</button>
-        <button @click="deleteSkill">{{ $t("skillPage.delete") }}</button>
+        <h1 class="text-4xl w-1/2 text-center">{{ skillName }}</h1>
+        <h2 class="text-2xl w-1/2 text-center">{{ version }}</h2>
+        <h3 class="text-xl w-1/2 text-center" v-html="description"></h3>
+
+
+
+        <div v-if="Object.keys(options).length !== 0" class="w-1/2 border-b-2 border-b-main-medium"></div>
+
+        <div v-if="Object.keys(options).length !== 0" class="w-1/2 flex flex-col gap-3">
+            <h2 class="text-2xl">{{$t('skillPage.options')}}</h2>
+            <form class="flex flex-col gap-1">
+                <div v-for="(option, name) in options" v-bind:key="name">
+                    <label>
+                        {{ name }}
+                    </label>
+                    <input v-model="option['value']" class="default-input" />
+                </div>
+            </form>
+
+            <button class="default-button">{{ $t("settingsPage.save") }}</button>
+        </div>
+
+        <div class="w-1/2 border-b-2 border-b-main-medium"></div>
+
+
+        <div class="flex gap-5">
+            <button @click="activateSkill">{{ $t("skillPage." + (active ? "deactivate" : "activate")) }}</button>
+            <button @click="deleteSkill">{{ $t("skillPage.delete") }}</button>
+        </div>
+
+
+
+
     </div>
 </template>
 

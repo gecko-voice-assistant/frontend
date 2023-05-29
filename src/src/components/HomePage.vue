@@ -67,7 +67,7 @@ export default {
                             class="hover:bg-accent-light text-text-normal hover:text-main-dark cursor-pointer"
                         >
                             <td>{{ skill["name"] }}</td>
-                            <td>{{ skill["description"] }}</td>
+                            <td>{{ skill["description"].toString().replaceAll(/<.*?>/g, "") }}</td>
                             <td>{{ skill["version"] }}</td>
                             <td>{{ $t(skill["active"].toString()) }}</td>
                         </tr>
