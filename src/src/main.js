@@ -25,6 +25,8 @@ import i18n from "@/i18n";
 const app = createApp(App);
 
 app.use(router);
-app.use(i18n);
+
+i18n.setup();
+app.use(i18n.vueI18n);
 
 app.mount("#app");

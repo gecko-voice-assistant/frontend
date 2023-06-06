@@ -16,26 +16,36 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 -->
 <script>
-import { getSettings } from "@/services/APIService";
+import { getSettings, postSettings } from "@/services/APIService";
+import LoadingBar from "@/components/LoadingBar.vue";
 
 export default {
     name: "SettingsPage",
+    components: { LoadingBar },
     data() {
         return {
+            loading: false,
+            skillmanagerVersion: "",
             settings: {
                 skillmanager: {},
                 frontend: {
-                    language: "de_DE",
-                    asfdg: "de_DE",
-                    sdfghj: "de_DE",
-                    ysdafghad: "de_DE"
+                    language: "de_DE"
                 }
             }
         };
     },
     methods: {
         getSettings() {
-            getSettings().then((settings) => (this.settings.skillmanager = settings));
+            getSettings().then((information) => {
+                this.settings.skillmanager = information["settings"];
+                // this.skillmanagerVersion = information["version"];
+            });
+        },
+        postSettings() {
+            this.loading = true;
+            postSettings(this.settings.skillmanager)
+                .then(() => (this.loading = false))
+                .catch(alert);
         }
     },
     mounted() {
@@ -45,34 +55,22 @@ export default {
 </script>
 
 <template>
-    <div class="flex flex-col justify-items-start items-center h-[95%] gap-10">
+    <div class="flex flex-col justify-items-start items-center h-[95%] gap-40">
+        <LoadingBar :showing="loading" :title="$t('settingsPage.saving')"></LoadingBar>
+
         <h1 class="text-4xl">{{ $t("settingsPage.heading") }}</h1>
-        <div class="w-1/2 flex flex-col gap-3">
-            <h2 class="text-2xl">Frontend</h2>
-            <form class="flex flex-col gap-1">
-                <div v-for="(value, setting) in settings.frontend" v-bind:key="setting">
-                    <label>
-                        {{ setting.toUpperCase() }}
-                    </label>
-                    <input v-model="settings.frontend[setting]" class="default-input" />
-                </div>
-            </form>
-
-            <button class="default-button">{{ $t("settingsPage.save") }}</button>
-        </div>
-        <div class="w-1/2 border-b-2 border-b-main-medium"></div>
-        <div class="w-1/2 flex flex-col gap-3">
-            <h2 class="text-2xl">Skillmanager</h2>
-            <div class="flex flex-col gap-1">
-                <div v-for="(value, setting) in settings.skillmanager" v-bind:key="setting">
-                    <label>
-                        {{ setting.toUpperCase() }}
-                    </label>
-                    <input v-model="settings.skillmanager[setting]" class="default-input" />
-                </div>
+        <div class="w-2/5 h-full flex flex-col gap-2">
+            <div
+                v-for="(value, setting) in settings.skillmanager"
+                v-bind:key="setting"
+                class="flex justify-between px-4"
+            >
+                <label class="w-1/3">
+                    {{ setting.toUpperCase() }}
+                </label>
+                <input v-model="settings.skillmanager[setting]" class="default-input w-2/3" />
             </div>
-
-            <button class="default-button">{{ $t("settingsPage.save") }}</button>
+            <button @click="postSettings" class="default-button">{{ $t("settingsPage.save") }}</button>
         </div>
     </div>
 </template>

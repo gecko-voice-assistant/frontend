@@ -1,0 +1,40 @@
+{
+    "appTitle": "G.E.C.K.O.",
+    "true": "Ja",
+    "false": "Nein",
+    "navigation": {
+        "home": "Startseite",
+        "install": "Installieren",
+        "download": "Herunterladen",
+        "settings": "Einstellungen"
+    },
+    "homePage": {
+        "heading": "Installierte Skills",
+        "name": "Name",
+        "description": "Beschreibung",
+        "version": "Version",
+        "active": "Aktiv"
+    },
+    "skillPage": {
+        "activate": "Aktivieren",
+        "deactivate": "Deaktivieren",
+        "activating": "Skill wird aktiviert...",
+        "deactivating": "Skill wird deaktiviert...",
+        "delete": "Löschen",
+        "options": "Optionen",
+        "saveOptions": "Optionen werden gespeichert..."
+    },
+    "downloadPage": {
+        "heading": "Skills Herunterladen",
+        "download": "Herunterladen"
+    },
+    "installPage": {
+        "heading": "Skill Installieren"
+    },
+    "settingsPage": {
+        "heading": "Einstellungen",
+        "language": "Sprache",
+        "save": "Speichern",
+        "saving": "Einstellungen werden gespeichert..."
+    }
+}

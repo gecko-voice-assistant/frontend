@@ -37,6 +37,17 @@ export async function getSkillDetails(skillName) {
     return await response.json();
 }
 
+export async function postOptions(skillName, options) {
+    const response = await fetch(`${baseUrl}/skill/${skillName}/options`, {
+        method: "POST",
+        body: JSON.stringify(options),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    return await response.json();
+}
+
 export async function activateSkill(skillName, state) {
     const response = await fetch(`${baseUrl}/skill/${skillName}/${state ? "activate" : "deactivate"}`);
     return await response.json();
@@ -49,5 +60,16 @@ export async function deleteSkill(skillName) {
 
 export async function getSettings() {
     const response = await fetch(`${baseUrl}/settings`);
+    return await response.json();
+}
+
+export async function postSettings(body = {}) {
+    const response = await fetch(`${baseUrl}/settings`, {
+        method: "POST",
+        body: JSON.stringify(body),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
     return await response.json();
 }

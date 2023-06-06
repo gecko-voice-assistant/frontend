@@ -32,6 +32,10 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
         @apply bg-main-medium px-2 py-1 text-accent-light;
     }
 
+    select {
+        @apply bg-transparent text-center;
+    }
+
     .test-border {
         @apply border-2 border-accent-light;
     }
