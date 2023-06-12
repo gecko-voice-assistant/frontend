@@ -15,7 +15,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-const baseUrl = `${window.location.protocol}//${window.location.hostname}:3000`;
+const baseUrl = `${window.location.protocol}//${window.location.hostname}:12100`;
 
 export async function getAllSkills() {
     const response = await fetch(`${baseUrl}/skills`);
