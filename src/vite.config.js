@@ -34,10 +34,12 @@ export default defineConfig({
 	},
 	server: {
 		proxy: {
-			// '/api': 'http://localhost:3000',
 			'/api': {
-				target: 'http://localhost:3000',
-				changeOrigin: true
+				target: 'http://localhost:3000/',
+				changeOrigin: false,
+				secure: false,
+				ws: true,
+				rewrite: (path) => path.replace(/^\/api/, ''),
 			}
 		}
 	}
