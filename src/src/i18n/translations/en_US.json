@@ -20,6 +20,8 @@
         "deactivate": "Deactivate",
         "activating": "Activating skill...",
         "deactivating": "Deactivating skill...",
+        "delete": "Delete",
+        "sentences": "Sentences",
         "options": "Options",
         "saveOptions": "Saving options..."
     },
