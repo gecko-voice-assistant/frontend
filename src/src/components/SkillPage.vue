@@ -81,7 +81,7 @@ export default {
         },
         deleteSkill() {
             this.loading = true;
-            this.loadingMessage = 'skillPage.deleting';
+            this.loadingMessage = "skillPage.deleting";
             deleteSkill(this.skillName).finally(() => this.$router.replace({ path: "/skill" }));
         },
         getSlot(x, y) {
@@ -137,21 +137,21 @@ export default {
         <div class="w-1/2 flex flex-col items-center gap-3">
             <h2 class="text-2xl">{{ $t("skillPage.sentences") }}</h2>
             <ul>
-              <li v-for="(sentence, x) in sentences" v-bind:key="x">
-                  <p class="text-start">
-                    ...
-                    <template v-for="(text, y) in sentence.split('#')" v-bind:key="y">
-                      {{ text }}
+                <li v-for="(sentence, x) in sentences" v-bind:key="x">
+                    <p class="text-start">
+                        ...
+                        <template v-for="(text, y) in sentence.split('#')" v-bind:key="y">
+                            {{ text }}
 
-                      <SlotComponent
-                        v-if="text && y < sentence.split('#').length && slotsValues[x] && slotsValues[x][y]"
-                        :slot-data="getSlot(x, y)"
-                        :slot-name="slotsValues[x][y][2] ? slotsValues[x][y][2] : ''"
-                      ></SlotComponent>
-                    </template>
-                  </p>
-              </li>
-          </ul>
+                            <SlotComponent
+                                v-if="text && y < sentence.split('#').length && slotsValues[x] && slotsValues[x][y]"
+                                :slot-data="getSlot(x, y)"
+                                :slot-name="slotsValues[x][y][2] ? slotsValues[x][y][2] : ''"
+                            ></SlotComponent>
+                        </template>
+                    </p>
+                </li>
+            </ul>
         </div>
 
         <div v-if="Object.keys(options).length !== 0" class="w-1/2 border-b-2 border-b-main-medium"></div>

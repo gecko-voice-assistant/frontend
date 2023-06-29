@@ -42,14 +42,14 @@ export default {
 
             const lastBreadCrumb = [...(breadcrumbs || [""]).slice(-1)][0];
 
-            if (lastBreadCrumb){
-              const suffix = lastBreadCrumb.name.startsWith(":")
-                ? this.$route.params[lastBreadCrumb.name.split(":")[1]]
-                : this.$t("navigation." + lastBreadCrumb.name.toLowerCase())
+            if (lastBreadCrumb) {
+                const suffix = lastBreadCrumb.name.startsWith(":")
+                    ? this.$route.params[lastBreadCrumb.name.split(":")[1]]
+                    : this.$t("navigation." + lastBreadCrumb.name.toLowerCase());
 
-              document.title = `G.E.C.K.O. | ${suffix}`;
-            }else {
-              document.title = 'G.E.C.K.O.';
+                document.title = `G.E.C.K.O. | ${suffix}`;
+            } else {
+                document.title = "G.E.C.K.O.";
             }
         }
     }
