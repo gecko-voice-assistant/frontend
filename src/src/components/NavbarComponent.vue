@@ -30,7 +30,7 @@ import { supportedLocales as locales } from "@/i18n";
         <div class="flex flex-col gap-1 items-start">
             <NavbarItem name="Home"></NavbarItem>
             <NavbarItem name="Download"></NavbarItem>
-            <!--            <NavbarItem name="Install"></NavbarItem>-->
+            <NavbarItem name="Install"></NavbarItem>
         </div>
         <div class="flex flex-col gap-3 justify-end">
             <select v-model="$i18n.locale">

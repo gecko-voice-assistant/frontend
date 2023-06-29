@@ -36,7 +36,7 @@ export default defineComponent({
 <template>
     <div
         v-if="showing"
-        class="absolute top-0 left-0 w-screen h-screen bg-opacity-70 bg-main-dark flex items-center justify-center"
+        class="absolute top-0 left-0 w-screen h-screen bg-opacity-70 bg-main-dark flex items-center justify-center z-50"
     >
         <div class="w-96 h-36 m-auto bg-main-medium flex flex-col rounded-xl">
             <div class="h-14 bg-accent-light rounded-t-xl flex items-center pl-2">

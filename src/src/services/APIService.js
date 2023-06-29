@@ -73,3 +73,14 @@ export async function postSettings(body = {}) {
     });
     return await response.json();
 }
+
+export async function installSkill(skillName, versionTag, file) {
+    const formData = new FormData();
+    formData.append("zipped", file);
+
+    const response = await fetch(`${baseUrl}/install/${skillName}/${versionTag}`, {
+        method: "POST",
+        body: formData
+    });
+    return await response.json();
+}

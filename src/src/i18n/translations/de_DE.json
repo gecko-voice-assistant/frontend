@@ -21,6 +21,7 @@
         "activating": "Skill wird aktiviert...",
         "deactivating": "Skill wird deaktiviert...",
         "delete": "Löschen",
+        "deleting": "Skill wird gelöscht...",
         "sentences": "Sätze",
         "options": "Optionen",
         "saveOptions": "Optionen werden gespeichert..."
@@ -30,7 +31,16 @@
         "download": "Herunterladen"
     },
     "installPage": {
-        "heading": "Skill Installieren"
+        "heading": "Skill Installieren",
+        "subheading": "Hier können Skills lokal installiert werden",
+        "install": "Installieren",
+        "reset": "Zurücksetzen",
+        "installing": "Skill wird installiert...",
+        "validationHints": {
+            "skillName": "Der Name des Skills darf lediglich Buchstaben, Zahlen und folgende Zeichen enthalten: _-.",
+            "versionTag": "Die Version muss wie folgende Beispiele aufgebaut sein: 1.0.0, 23.12.5 oder 0.0.0",
+            "skillFile": "Es muss eine Datei angegeben werden"
+        }
     },
     "settingsPage": {
         "heading": "Einstellungen",

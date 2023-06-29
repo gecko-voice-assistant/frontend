@@ -36,7 +36,21 @@ export default {
             if (this.breadcrumbList[pRouteTo].link) this.$router.push(this.breadcrumbList[pRouteTo].link);
         },
         updateList() {
-            this.breadcrumbList = this.$route.meta.breadcrumb;
+            const breadcrumbs = this.$route.meta.breadcrumb;
+
+            this.breadcrumbList = breadcrumbs;
+
+            const lastBreadCrumb = [...(breadcrumbs || [""]).slice(-1)][0];
+
+            if (lastBreadCrumb){
+              const suffix = lastBreadCrumb.name.startsWith(":")
+                ? this.$route.params[lastBreadCrumb.name.split(":")[1]]
+                : this.$t("navigation." + lastBreadCrumb.name.toLowerCase())
+
+              document.title = `G.E.C.K.O. | ${suffix}`;
+            }else {
+              document.title = 'G.E.C.K.O.';
+            }
         }
     }
 };

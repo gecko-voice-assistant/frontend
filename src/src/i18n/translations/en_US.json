@@ -21,6 +21,7 @@
         "activating": "Activating skill...",
         "deactivating": "Deactivating skill...",
         "delete": "Delete",
+        "deleting": "Deleting skill...",
         "sentences": "Sentences",
         "options": "Options",
         "saveOptions": "Saving options..."
@@ -30,7 +31,16 @@
         "download": "Download"
     },
     "installPage": {
-        "heading": "Install Skill"
+        "heading": "Install Skill",
+        "subheading": "Skills can be installed locally here",
+        "install": "Install",
+        "reset": "Reset",
+        "installing": "Installing skill...",
+        "validationHints": {
+            "skillName": "The name of the skill may only contain letters, numbers and the following characters: _-.",
+            "versionTag": "The version must be structured like the following examples: 1.0.0, 23.12.5 or 0.0.0",
+            "skillFile": "A file must be specified"
+        }
     },
     "settingsPage": {
         "heading": "Settings",
